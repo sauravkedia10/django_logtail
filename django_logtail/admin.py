@@ -2,7 +2,7 @@ from os.path import isfile, getsize
 import json
 from django.contrib import admin
 from django.contrib.admin.views.main import ChangeList
-from django.conf.urls import url
+from django.conf.urls import re_path
 from django.http import HttpResponse, Http404
 from django_logtail.models import Log
 from django_logtail import app_settings
@@ -95,7 +95,7 @@ class LogAdmin(admin.ModelAdmin):
     def get_urls(self):
         urls = super(LogAdmin, self).get_urls()
         urls.insert(0,
-            url(
+            re_path(
                 r'^(?P<logfile>[-\w\.]+)/(?P<seek_to>\d+)/$',
                 self.admin_site.admin_view(self.log_view),
             ),
