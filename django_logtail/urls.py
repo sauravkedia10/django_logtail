@@ -1,6 +1,6 @@
-from django.conf.urls import patterns
+#from django.conf.urls import patterns
 
-urlpatterns = patterns('',)
+#urlpatterns = patterns('',)
 
 import warnings
 warnings.warn(
